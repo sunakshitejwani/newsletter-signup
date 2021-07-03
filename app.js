@@ -50,7 +50,7 @@ app.post("/", function(req, res) {
     });
   });
 
-  //request2.write(jsonData);
+  request2.write(jsonData);
   request2.end();
 });
 
@@ -64,6 +64,7 @@ app.listen(process.env.PORT || 3002, function() {
 
 // API key
 // 0facccc598af4ea8d3b6b8aa571287b7-us6
+//0facccc598af4ea8d3b6b8aa571287b7-us6
 
 //list-id
 // ae2bba6865
