@@ -40,14 +40,23 @@ app.post("/", function(req, res) {
   };
 
   const request2 = https.request(url, options, function(response) {
+    if(response.statusCode === 200){
+      res.sendFile(__dirname + "/success.html");
+    } else {
+      res.sendFile(__dirname + "/failure.html")
+    }
     response.on("data", function(data) {
       console.log(JSON.parse(data));
     });
   });
 
-  request2.write(jsonData);
+  //request2.write(jsonData);
   request2.end();
 });
+
+app.post("/failure", function(req, res){
+  res.redirect("/");
+})
 
 app.listen(3002, function() {
   console.log("Server is running on port 3002");
